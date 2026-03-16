@@ -48,7 +48,7 @@ docsify-cli-plus 是 [Docsify](https://docsify.js.org/) 的增强版 CLI 工具�
 ```bash
 # 在 GitHub 上 Fork 仓库
 # 本地克隆您的 Fork
-git clone https://github.com/您的用户名/docsify-cli-plus.git
+git clone https://github.com/xxxily/docsify-cli-plus.git
 cd docsify-cli-plus
 
 # 安装依赖

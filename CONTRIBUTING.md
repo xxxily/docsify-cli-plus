@@ -48,7 +48,7 @@ docsify-cli-plus is an enhanced CLI tool for [Docsify](https://docsify.js.org/),
 ```bash
 # Fork the repository on GitHub
 # Clone your fork locally
-git clone https://github.com/YOUR_USERNAME/docsify-cli-plus.git
+git clone https://github.com/xxxily/docsify-cli-plus.git
 cd docsify-cli-plus
 
 # Install dependencies
