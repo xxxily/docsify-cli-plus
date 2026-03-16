@@ -11,6 +11,11 @@
   "serve.port": "Listen port.",
   "serve.host": "Bind to host.",
   "serve.indexname": "Custom filename instead of index.html to serve by default",
+  "start": "Starte docsify Server ohne Konfiguration.",
+  "start.open": "Dokumentation im Standardbrowser öffnen. Um explizit --open auf false zu setzen, kannst du --no-open verwenden.",
+  "start.port": "Listen port.",
+  "start.host": "Bind to host.",
+  "start.indexname": "Custom filename instead of index.html to serve by default",
   "livereload.port": "livereload Listen port.",
   "usage": "Anwendung",
   "version": "Zeige Versionsnummer an"

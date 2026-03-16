@@ -104,6 +104,35 @@ docsify serve [path] [--open false] [--port 3000]
   - Default: `localhost`
   - Description: Choose a host to bind to, defaults to `localhost`.
 
+### `start` command
+
+Start a server with zero configuration. This command works like `serve`, but with automatic fallback:
+
+- If no `index.html` exists, a default one will be served (with `loadSidebar: true`, `subMaxLevel: 2`, `auto2top: true`, and search plugin enabled)
+- If no `_sidebar.md` exists, a virtual sidebar will be auto-generated from your markdown files and updated automatically when files change
+
+```shell
+docsify start [path] [--open false] [--port 3000]
+
+# docsify st [path] [-o false] [-p 3000]
+```
+
+- `--open` option:
+  - Shorthand: `-o`
+  - Type: boolean
+  - Default: `false`
+  - Description: Open the docs in the default browser, defaults to `false`. To explicitly set this option to `false` use `--no-open`.
+- `--port` option:
+  - Shorthand: `-p`
+  - Type: number
+  - Default: `3000`
+  - Description: Choose a listen port, defaults to `3000`.
+- `--host` option:
+  - Shorthand: `-H`
+  - Type: string
+  - Default: `localhost`
+  - Description: Choose a host to bind to, defaults to `localhost`.
+
 ### `generate` command
 
 Docsify's generators.
