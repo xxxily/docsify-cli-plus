@@ -1,30 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <title>Document</title>
-  <meta name="description" content="Description">
+  <meta name="description" content="Documentation powered by Docsify">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Docsify v5 Themes -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.0.0-rc.4/dist/themes/core.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.0.0-rc.4/dist/themes/addons/vue.min.css">
+
+  <!-- Custom styles for better UX -->
+  <style>
+    /* Loading spinner */
+    #app {
+      font-size: 14px;
+      color: #999;
+      text-align: center;
+      padding-top: 30vh;
+    }
+
+    /* Improve code block appearance */
+    .markdown-section pre {
+      border-radius: 6px;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 40px;
+      height: 40px;
+      background: var(--theme-color, #42b983);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: opacity 0.3s, transform 0.3s;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      transform: scale(1.1);
+    }
+
+    /* Word count and reading time in sidebar */
+    .word-count {
+      color: #999;
+      font-size: 0.75em;
+      margin-top: 1em;
+      padding-top: 0.5em;
+      border-top: 1px solid #eee;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="app"></div>
+  <div id="app">Loading ...</div>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
   <script>
     window.$docsify = {
-      name: 'Docsify CLI Plus',
-      nameLink: '/',
-      repo: 'https://github.com/xxxily/docsify-cli-plus',
-      loadSidebar: true,
-      subMaxLevel: 2,
-      auto2top: true,
-      search: 'auto'
+      // ─── Basic ─────────────────────────────────────────────────
+      name: 'Docsify CLI Plus',                    // Sidebar title; leave empty to auto-detect
+      nameLink: '/',               // Link for the sidebar title
+      repo: 'https://github.com/xxxily/docsify-cli-plus',                    // GitHub corner link (optional)
+
+      // ─── Routing ───────────────────────────────────────────────
+      auto2top: true,              // Scroll to top on page change
+      routerMode: 'hash',          // 'hash' or 'history'
+      // relativePath: true,          // Resolve relative paths from current file
+
+      // ─── Sidebar ───────────────────────────────────────────────
+      loadSidebar: true,           // Load _sidebar.md
+      autoHeader: true,            // Automatically add page title from first heading
+      mergeNavbar: true,           // Merge navbar into sidebar on small screens
+      subMaxLevel: 3,              // Table of contents depth
+      maxLevel: 4,                 // Maximum heading level for sidebar
+
+      // ─── Content ───────────────────────────────────────────────
+      loadNavbar: false,           // Set to true if you create _navbar.md
+      coverpage: false,            // Set to true if you create _coverpage.md
+      onlyCover: false,            // Only show cover page on home
+
+      // ─── Appearance ────────────────────────────────────────────
+      topMargin: 15,               // Top margin for fixed headers
+      themeColor: '#42b983',       // Theme color for mobile toolbar etc.
+
+      // ─── Search Plugin ─────────────────────────────────────────
+      search: {
+        maxAge: 86400000,          // Cache duration: 1 day
+        paths: 'auto',             // Search all pages
+        placeholder: '搜索...',
+        noData: '未找到结果!',
+        depth: 3,                  // Search heading depth
+        hideOtherSidebarContent: false,
+        namespace: 'docsify-search'
+      },
+
+      // ─── Pagination Plugin ─────────────────────────────────────
+      pagination: {
+        previousText: '上一页',
+        nextText: '下一页',
+        crossChapter: true,
+        crossChapterText: true
+      },
+
+      // ─── Copy Code Plugin ─────────────────────────────────────
+      copyCode: {
+        buttonText: '复制',
+        errorText: '复制失败',
+        successText: '复制成功'
+      },
+
+      // ─── Tab Plugin ────────────────────────────────────────────
+      tabs: {
+        persist: true,             // Remember selected tabs
+        sync: true,                // Sync tabs with same label
+        theme: 'classic',
+        tabComments: true,
+        tabHeadings: true
+      },
+
+      // ─── Word Count ────────────────────────────────────────────
+      count: {
+        countable: true,
+        position: 'top',
+        margin: '10px',
+        float: 'right',
+        fontsize: '0.9em',
+        color: '#999',
+        language: 'chinese',       // 'english' or 'chinese'
+        isExpected: true
+      },
+
+      // ─── Plugins (hook-based) ──────────────────────────────────
+      plugins: [
+        // Footer plugin — adds a divider and "powered by" at the bottom
+        function (hook) {
+          var footer = '<hr/><footer style="text-align:center;color:#999;font-size:0.75em;padding:2em 0;">' +
+            '<span>Powered by <a href="https://docsify.js.org" target="_blank" rel="noopener" style="color:inherit;">docsify</a></span>' +
+            '</footer>'
+          hook.afterEach(function (html) {
+            return html + footer
+          })
+        }
+      ]
     }
   </script>
-  <!-- Docsify resource -->
+
+  <!-- Docsify core -->
   <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0-rc.4"></script>
+
+  <!-- Plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0-rc.4/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@3"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-count@latest/dist/countable.min.js"></script>
+
+  <!-- Code syntax highlighting (commonly used languages) -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-go.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-css.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-docker.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-nginx.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-rust.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-swift.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-kotlin.min.js"></script>
+
+  <!-- Back to top button visibility -->
+  <script>
+      (function () {
+        var btn = document.querySelector('.back-to-top')
+        if (!btn) return
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 300) {
+            btn.classList.add('visible')
+          } else {
+            btn.classList.remove('visible')
+          }
+        })
+      })()
+  </script>
 </body>
 
 </html>
