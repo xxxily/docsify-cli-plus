@@ -156,6 +156,7 @@ docsify start [path] [--open false] [--port 3000]
 - 支持嵌套目录结构
 - **折叠支持**：文件夹内容默认折叠（使用 `<details>`/`<summary>`），且支持在页面跳转后自动恢复展开状态。
 - **动态排序**：支持根据文件修改时间 (`mtime`) 动态排序文件夹及文件。
+- **多实例支持**：端口冲突时自动探测并使用下一个可用端口（支持主服务及 livereload 服务同时自动调优）。
 
 **启动信息**：
 服务器启动时会显示详细信息：
@@ -190,10 +191,12 @@ docsify generate [path] [--sidebar _sidebar.md] [--overwrite]
 管理系统右键菜单和运行中的 Docsify 实例。
 
 ```shell
-docsify menu <subcommand> [arg]
+docsify menu [subcommand] [arg]
 
-# docsify m <subcommand> [arg]
+# docsify m [subcommand] [arg]
 ```
+
+如果不提供子命令，将显示帮助信息。
 
 - **子命令**：
   - `register`：注册系统右键菜单（支持 macOS 和 Windows）。注册后即可在文件管理器中右键文件夹一键启动服务。

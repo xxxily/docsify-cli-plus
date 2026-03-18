@@ -144,6 +144,7 @@ docsify start [path] [--open false] [--port 3000]
 - **Collapsible Folders**: Folders in the virtual sidebar are collapsed by default using HTML `<details>` and `<summary>` tags.
 - **State Persistence**: The expanded/collapsed state of folders is preserved when navigating through different pages.
 - **Smart Sorting**: Use `--sidebar-sort mtime` to keep your most recently updated docs at the top of the sidebar. Useful for "What's New" style documentation.
+- **Multi-instance Support**: Automatically detects and uses the next available port if the default port is busy (supports both main server and livereload server auto-tuning).
 
 **Template Loading Priority**:
 1. `~/.docsify/index.html` - User-defined template
@@ -177,9 +178,9 @@ docsify generate [path] [--sidebar _sidebar.md] [--overwrite]
 Manage system context menu and running Docsify instances.
 
 ```shell
-docsify menu <subcommand> [arg]
+docsify menu [subcommand] [arg]
 
-# docsify m <subcommand> [arg]
+# docsify m [subcommand] [arg]
 ```
 
 - **Subcommands**:
@@ -188,6 +189,8 @@ docsify menu <subcommand> [arg]
   - `status`: Show the list of running instances and registration status.
   - `stop-all`: Stop all instances started via `docsify start`.
   - `stop <pid>`: Stop a specific instance by its process ID (PID).
+
+Shows help information if no subcommand is provided.
 
 > [!TIP]
 > **For macOS Users**: After running `menu register`, go to **System Settings** → **Privacy & Security** → **Extensions** → **Finder**, and check **Docsify Start Server** to enable the context menu.
