@@ -23,5 +23,11 @@
   "generate.overwrite": "Allow overwrite generated files",
   "livereload.port": "livereload Listen port.",
   "usage": "Usage",
-  "version": "Show version number"
+  "version": "Show version number",
+  "menu": "Manage system context menu and running instances",
+  "menu.register": "Register system right-click context menu (macOS / Windows)",
+  "menu.unregister": "Unregister system right-click context menu",
+  "menu.status": "Show registration status and running instance list",
+  "menu.stop-all": "Stop all running docsify instances",
+  "menu.stop": "Stop a specific instance by PID"
 }

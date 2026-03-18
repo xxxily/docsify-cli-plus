@@ -185,6 +185,26 @@ docsify generate [path] [--sidebar _sidebar.md] [--overwrite]
   - 默认值：`false`
   - 描述：允许覆盖已生成的文件。
 
+### `menu` 命令
+
+管理系统右键菜单和运行中的 Docsify 实例。
+
+```shell
+docsify menu <subcommand> [arg]
+
+# docsify m <subcommand> [arg]
+```
+
+- **子命令**：
+  - `register`：注册系统右键菜单（支持 macOS 和 Windows）。注册后即可在文件管理器中右键文件夹一键启动服务。
+  - `unregister`：取消注册系统右键菜单。
+  - `status`：查看运行中的实例列表及菜单注册状态。
+  - `stop-all`：停止所有通过 `docsify start` 启动的实例。
+  - `stop <pid>`：根据进程 ID (PID) 停止特定实例。
+
+> [!TIP]
+> **macOS 用户须知**：运行 `menu register` 后，请前往「系统设置」→「隐私与安全性」→「扩展」→「访达」，勾选 **Docsify Start Server** 以启用右键菜单。
+
 ## 快速开始示例
 
 ### 场景 1：从零开始（推荐）

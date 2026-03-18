@@ -23,5 +23,11 @@
   "generate.overwrite": "允许覆盖生成的文件",
   "livereload.port": "设置 livereload 端口",
   "usage": "例子",
-  "version": "当前版本号"
+  "version": "当前版本号",
+  "menu": "管理右键菜单和运行实例",
+  "menu.register": "注册系统右键菜单（macOS / Windows）",
+  "menu.unregister": "取消注册系统右键菜单",
+  "menu.status": "查看注册状态和运行中的实例列表",
+  "menu.stop-all": "停止所有运行中的 docsify 实例",
+  "menu.stop": "停止指定 PID 的实例"
 }

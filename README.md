@@ -172,6 +172,26 @@ docsify generate [path] [--sidebar _sidebar.md] [--overwrite]
   - Default: `false`
   - Description: Allow to overwrite generated files.
 
+### `menu` command
+
+Manage system context menu and running Docsify instances.
+
+```shell
+docsify menu <subcommand> [arg]
+
+# docsify m <subcommand> [arg]
+```
+
+- **Subcommands**:
+  - `register`: Register the system right-click context menu (supports macOS and Windows).
+  - `unregister`: Unregister the system context menu.
+  - `status`: Show the list of running instances and registration status.
+  - `stop-all`: Stop all instances started via `docsify start`.
+  - `stop <pid>`: Stop a specific instance by its process ID (PID).
+
+> [!TIP]
+> **For macOS Users**: After running `menu register`, go to **System Settings** → **Privacy & Security** → **Extensions** → **Finder**, and check **Docsify Start Server** to enable the context menu.
+
 ## Contributing
 Please see the [Contributing Guidelines](./CONTRIBUTING.md)
 
