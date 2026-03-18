@@ -126,16 +126,29 @@ docsify start [path] [--open false] [--port 3000]
   - Type: boolean
   - Default: `false`
   - Description: Open the docs in the default browser, defaults to `false`. To explicitly set this option to `false` use `--no-open`.
-- `--port` option:
-  - Shorthand: `-p`
-  - Type: number
-  - Default: `3000`
-  - Description: Choose a listen port, defaults to `3000`.
 - `--host` option:
   - Shorthand: `-H`
   - Type: string
   - Default: `localhost`
   - Description: Choose a host to bind to, defaults to `localhost`.
+- `--sidebar-sort` option:
+  - Shorthand: `-S`
+  - Type: string
+  - Choices: `natural`, `mtime`
+  - Default: `natural`
+  - Description: Choose a sorting method for the virtual sidebar, defaults to `natural` (alphabetical). Use `mtime` to sort by file modification time (newest first).
+
+#### `start` command features
+
+**Virtual Sidebar Enhancements**:
+- **Collapsible Folders**: Folders in the virtual sidebar are collapsed by default using HTML `<details>` and `<summary>` tags.
+- **State Persistence**: The expanded/collapsed state of folders is preserved when navigating through different pages.
+- **Smart Sorting**: Use `--sidebar-sort mtime` to keep your most recently updated docs at the top of the sidebar. Useful for "What's New" style documentation.
+
+**Template Loading Priority**:
+1. `~/.docsify/index.html` - User-defined template
+2. `lib/template/start-index.html` - Project default template
+3. Built-in fallback template
 
 ### `generate` command
 

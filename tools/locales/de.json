@@ -16,6 +16,7 @@
   "start.port": "Listen port.",
   "start.host": "Bind to host.",
   "start.indexname": "Custom filename instead of index.html to serve by default",
+  "start.sidebarSort": "Sidebar sort method: 'natural' (alphabetical) or 'mtime' (by file modification time, newest first).",
   "livereload.port": "livereload Listen port.",
   "usage": "Anwendung",
   "version": "Zeige Versionsnummer an"
